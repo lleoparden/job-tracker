@@ -1,6 +1,7 @@
 # Python
 backend/venv/
 backend/__pycache__/
+backend/.env
 
 # Node
 website/node_modules/
@@ -11,3 +12,6 @@ website/dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Progress tracking
+PROGRESS.md

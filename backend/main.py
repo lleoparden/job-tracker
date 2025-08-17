@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from routers import jobs
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Backend is running 🚀"}
+# include the router correctly
+app.include_router(jobs.router, prefix="/jobs", tags=["Jobs"])
