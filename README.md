@@ -17,35 +17,36 @@ This project is built with a **FastAPI backend** and a **React + Vite frontend**
 
 ## 📂 Project Structure
 
-'''bash
+```plaintext
 job-tracker/
 │
 ├── backend/ # FastAPI backend
-│ ├── app/
-│ │ ├── main.py # FastAPI entry point
-│ │ ├── routers/ # API routes
-│ │ ├── models/ # Data models
-│ │ └── database.py # Database connection
-│ ├── requirements.txt # Backend dependencies
-│ └── venv/ # Python virtual environment (not pushed to git)
+│   ├── app/
+│   │   ├── main.py # FastAPI entry point
+│   │   ├── routers/ # API routes
+│   │   ├── models/ # Data models
+│   │   └── database.py # Database connection
+│   ├── requirements.txt # Backend dependencies
+│   └── venv/ # Python virtual environment (not pushed to git)
 │
 ├── frontend/ # React + Vite frontend
-│ ├── src/
-│ │ ├── components/ # Reusable React components
-│ │ ├── pages/ # Pages (Dashboard, Login, etc.)
-│ │ ├── App.tsx # Main app
-│ │ └── main.tsx # React entry point
-│ ├── package.json # Frontend dependencies
-│ └── vite.config.ts # Vite config
+│   ├── src/
+│   │   ├── components/ # Reusable React components
+│   │   ├── pages/ # Pages (Dashboard, Login, etc.)
+│   │   ├── App.tsx # Main app
+│   │   └── main.tsx # React entry point
+│   ├── package.json # Frontend dependencies
+│   └── vite.config.ts # Vite config
 │
 ├── mobile/ # Placeholder for future React Native app
 │
 ├── extension/ # Placeholder for future browser extension
 │
 ├── README.md # Project overview
-|
+│
 └── .gitignore
-'''
+```
+
 
 ---
 
