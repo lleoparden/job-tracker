@@ -17,7 +17,7 @@ This project is built with a **FastAPI backend** and a **React + Vite frontend**
 
 ## 📂 Project Structure
 
-'''
+'''bash
 job-tracker/
 │
 ├── backend/ # FastAPI backend
