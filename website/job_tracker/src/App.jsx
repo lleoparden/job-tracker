@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
-import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { initializeApp } from 'firebase/app';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import AuthForm from './components/auth/AuthForm.jsx';
@@ -9,6 +9,7 @@ import AddJobPage from './pages/AddJobPage.jsx';
 import BrowseJobsPage from './pages/BrowseJobsPage.jsx';
 import CurrentJobsPage from './pages/CurrentJobsPage.jsx';
 import LoadingSpinner from './components/ui/LoadingSpinner.jsx';
+import JobDetailsPage from "./pages/JobDetailsPage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnvK5dprgGXvSZMQugLn9MsYobIx0H8zs",
@@ -58,6 +59,7 @@ export default function App() {
               <Route path="/browse" element={<BrowseJobsPage />} />
               <Route path="/current" element={<CurrentJobsPage />} />
               <Route path="*" element={<Navigate to="/add" />} />
+              <Route path="/jobs/:jobId" element={<JobDetailsPage />} />
             </Routes>
           </main>
         </div>
