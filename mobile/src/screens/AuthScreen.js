@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
-import { auth } from "../firebase";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../services/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function AuthScreen({ navigation }) {
-  const auth = getAuth();
-
-  const [authMode, setAuthMode] = useState('login'); // 'login' | 'register'
+  const [authMode, setAuthMode] = useState('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -24,7 +22,6 @@ export default function AuthScreen({ navigation }) {
       }
       setEmail('');
       setPassword('');
-      // TODO: Navigate to TabNavigator after login
       navigation.replace('MainTabs');
     } catch (err) {
       setError(err.message);
@@ -40,7 +37,6 @@ export default function AuthScreen({ navigation }) {
         {authMode === 'login' ? 'Welcome back!' : 'Create your account'}
       </Text>
 
-      {/* Mode toggle */}
       <View style={styles.toggleContainer}>
         <TouchableOpacity
           style={[styles.toggleButton, authMode === 'login' && styles.toggleActive]}
@@ -60,7 +56,6 @@ export default function AuthScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* Form */}
       <View style={styles.form}>
         <TextInput
           style={styles.input}
@@ -98,10 +93,7 @@ export default function AuthScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* Footer */}
-      <TouchableOpacity
-        onPress={() => setAuthMode(authMode === 'login' ? 'register' : 'login')}
-      >
+      <TouchableOpacity onPress={() => setAuthMode(authMode === 'login' ? 'register' : 'login')}>
         <Text style={styles.footerText}>
           {authMode === 'login'
             ? "Don't have an account? Register"
@@ -113,13 +105,7 @@ export default function AuthScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E0F7FA',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
+  container: { flex: 1, backgroundColor: '#E0F7FA', alignItems: 'center', justifyContent: 'center', padding: 20 },
   title: { fontSize: 36, fontWeight: 'bold', color: '#20aae4', marginBottom: 8 },
   subtitle: { fontSize: 16, color: '#555', marginBottom: 20 },
   toggleContainer: { flexDirection: 'row', marginBottom: 20, borderRadius: 12, backgroundColor: '#ccc' },
@@ -128,21 +114,8 @@ const styles = StyleSheet.create({
   toggleText: { color: '#555', fontWeight: '500' },
   toggleTextActive: { color: '#fff', fontWeight: '600' },
   form: { width: '100%', marginBottom: 20 },
-  input: {
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#ccc',
-  },
-  button: {
-    backgroundColor: '#20aae4',
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
+  input: { backgroundColor: '#fff', borderRadius: 12, paddingHorizontal: 16, paddingVertical: 12, marginBottom: 12, borderWidth: 1, borderColor: '#ccc' },
+  button: { backgroundColor: '#20aae4', paddingVertical: 14, borderRadius: 12, alignItems: 'center' },
   buttonText: { color: '#fff', fontWeight: '600', fontSize: 16 },
   errorText: { color: 'red', marginBottom: 12, textAlign: 'center' },
   footerText: { color: '#20aae4', fontWeight: '500', textAlign: 'center' },

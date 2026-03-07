@@ -1,3 +1,4 @@
+//api.js
 import { getAuth } from 'firebase/auth';
 
 const BACKEND_URL = 'http://192.168.1.134:8000/'; 
